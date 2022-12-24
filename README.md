@@ -10,3 +10,5 @@
 ### Tecnologias usadas
  * Java 11 
  * Kafka 
+ 
+ ![alt text](https://github.com/jonathan1Henrique/image/blob/master/kafka-example.png)
