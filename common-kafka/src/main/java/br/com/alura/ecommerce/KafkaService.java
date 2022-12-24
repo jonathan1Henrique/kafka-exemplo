@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
 class KafkaService<T> implements Closeable {
@@ -54,13 +55,19 @@ class KafkaService<T> implements Closeable {
                 System.out.println("Encontrei " + records.count() + " registros");
 
                 for (var record : records) {
-                    parse.consume(record);
+                    try {
+                        parse.consume(record);
+                    } catch (Exception e) {
+                        // Only catches Exception because no matter with Exception
+                        // i want to recover and parse to next one
+                        e.printStackTrace();
+                    }
                 }
             }
         }
     }
 
-    private Properties getProperties(String groupId, Class<T> type, Map<String,String> overrideProperties){
+    private Properties getProperties(String groupId, Class<T> type, Map<String, String> overrideProperties){
         var properties = new Properties();
 
         properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");

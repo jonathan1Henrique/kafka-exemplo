@@ -6,11 +6,12 @@ public class Order {
 
     private final String userId, orderId;
     private final BigDecimal amount;
-
-    Order(String userId, String orderId, BigDecimal amount){
+    private final String email;
+    Order(String userId, String orderId, BigDecimal amount, String email){
         this.amount = amount;
         this.userId = userId;
         this.orderId = orderId;
+        this.email = email;
     }
 
     public BigDecimal getAmount() {
@@ -21,6 +22,7 @@ public class Order {
     public String getUserId() {
         return userId;
     }
+
     @Override
     public String toString() {
         return "Order {" +
@@ -28,6 +30,11 @@ public class Order {
                 ", orderId= '" + orderId + '\'' +
                 ", amount= " + amount +
                 '}';
+    }
+
+
+    public String getEmail(){
+        return"Email";
     }
 
 }

@@ -23,11 +23,11 @@ public class LogService {
     private void parse(ConsumerRecord<String, String> record){
 
         System.out.println("-------------------------------- LOG --------------------------------");
-        System.out.println("LOG: " + record.topic());
         System.out.println("Key: " + record.key());
         System.out.println("Value: " + record.value());
-        System.out.println("Partition: " + record.partition());
         System.out.println("Offset: " + record.offset());
+        System.out.println("LOG: " + record.topic());
+        System.out.println("Partition: " + record.partition());
 
         System.out.println("Email send");
 
