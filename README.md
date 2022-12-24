@@ -11,4 +11,4 @@
  * Java 11 
  * Kafka 
  
- ![alt text](https://github.com/jonathan1Henrique/images/blob/master/kafka-example.png)
+ ![alt text](https://github.com/jonathan1Henrique/images/blob/master/kafkalogo.png)
